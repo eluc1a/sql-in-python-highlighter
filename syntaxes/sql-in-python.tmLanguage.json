@@ -1,0 +1,36 @@
+{
+  "fileTypes": [],
+  "injectionSelector": "L:source.python -comment -string.quoted.single",
+  "patterns": [
+    {
+      "include": "#sql-triple-quoted"
+    }
+  ],
+  "repository": {
+    "sql-triple-quoted": {
+      "begin": "(\"\"\")(\\s*--sql)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        },
+        "2": {
+          "name": "comment.line.sql-marker.python"
+        }
+      },
+      "end": "(\"\"\")",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.sql",
+      "patterns": [
+        {
+          "include": "source.sql"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.python.embedded.sql"
+}
+

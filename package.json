@@ -1,0 +1,46 @@
+{
+  "name": "sql-in-python-highlighter",
+  "displayName": "SQL in Python Highlighter",
+  "description": "Syntax highlighting for SQL in Python strings marked with --sql",
+  "version": "0.1.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:python",
+    "onLanguage:jupyter"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "grammars": [
+      {
+        "scopeName": "source.python.embedded.sql",
+        "path": "./syntaxes/sql-in-python.tmLanguage.json",
+        "injectTo": [
+          "source.python"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.sql": "sql"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eluc1a/sql-in-python-highlighter.git"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "vsce": "^2.15.0"
+  }
+}
+
