@@ -1,0 +1,13 @@
+{
+    "[sql]": {
+        "editor.defaultFormatter": "eluc1a.sql-in-python-highlighter"
+    },
+    "[python]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "eluc1a.sql-in-python-highlighter"
+    },
+    "adpyke.vscode-sql-formatter.enable": false,
+    "clarkyu.vscode-sql-beautify.enable": false,
+    "prettier.disableLanguages": ["sql"],
+    "shinichi-takii.sql-bigquery.enable": false
+}

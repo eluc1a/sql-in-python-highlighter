@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+*.vsix
+out/
+dist/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Debug files
+debug_*.js
+test_*.js
+test_*.sql
+test_*.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+*~
+
+# Package manager
+.npm
+.yarn
+
+# Serena cache (development tool)
+.serena/cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Other
+.serena
+.claude
+CLAUDE.md
+PRINCIPALS.MD
+FIXES_SUMMARY.md
+test.sql

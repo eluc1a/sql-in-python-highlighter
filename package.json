@@ -2,8 +2,8 @@
   "name": "sql-in-python-highlighter",
   "displayName": "SQL in Python Highlighter",
   "description": "Syntax highlighting for SQL in Python strings marked with --sql",
-  "version": "0.1.0",
-  "publisher": "your-publisher-name",
+  "version": "0.2.0",
+  "publisher": "eluc1a",
   "engines": {
     "vscode": "^1.98.0"
   },
@@ -12,10 +12,30 @@
   ],
   "activationEvents": [
     "onLanguage:python",
-    "onLanguage:jupyter"
+    "onLanguage:sql",
+    "onLanguage:jupyter",
+    "onCommand:sql-in-python.formatSql"
   ],
   "main": "./extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "sql-in-python.formatSql",
+        "title": "Format SQL"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "sql-in-python.formatSql",
+        "key": "shift+alt+f",
+        "when": "editorTextFocus && resourceExtname =~ /\\.(py|sql|ipynb)/"
+      }
+    ],
+    "configurationDefaults": {
+      "[sql]": {
+        "editor.defaultFormatter": "eluc1a.sql-in-python-highlighter"
+      }
+    },
     "grammars": [
       {
         "scopeName": "source.python.embedded.sql",
@@ -30,17 +50,34 @@
     ]
   },
   "scripts": {
-    "package": "vsce package"
+    "package": "npx @vscode/vsce package"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/eluc1a/sql-in-python-highlighter.git"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "sql-formatter": "^15.0.0"
+  },
   "devDependencies": {
     "@types/vscode": "^1.98.0",
-    "vsce": "^2.15.0"
-  }
+    "@vscode/vsce": "^3.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/eluc1a/sql-in-python-highlighter/issues"
+  },
+  "homepage": "https://github.com/eluc1a/sql-in-python-highlighter#readme",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "keywords": [
+    "python",
+    "sql",
+    "syntax",
+    "highlighting",
+    "jupyter"
+  ],
+  "icon": "images/icon.png"
 }
-

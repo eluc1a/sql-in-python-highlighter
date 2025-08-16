@@ -3,12 +3,21 @@
   "injectionSelector": "L:source.python -comment -string.quoted.single",
   "patterns": [
     {
-      "include": "#sql-triple-quoted"
+      "include": "#sql-triple-quoted-double"
+    },
+    {
+      "include": "#sql-triple-quoted-single"
+    },
+    {
+      "include": "#sql-f-triple-quoted-double"
+    },
+    {
+      "include": "#sql-f-triple-quoted-single"
     }
   ],
   "repository": {
-    "sql-triple-quoted": {
-      "begin": "(\"\"\")(\\s*--sql)",
+    "sql-triple-quoted-double": {
+      "begin": "(\"\"\")(\\s*--sql\\b)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.string.begin.python"
@@ -18,6 +27,75 @@
         }
       },
       "end": "(\"\"\")",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.sql",
+      "patterns": [
+        {
+          "include": "source.sql"
+        }
+      ]
+    },
+    "sql-triple-quoted-single": {
+      "begin": "(''')(\\s*--sql\\b)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        },
+        "2": {
+          "name": "comment.line.sql-marker.python"
+        }
+      },
+      "end": "(''')",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.sql",
+      "patterns": [
+        {
+          "include": "source.sql"
+        }
+      ]
+    },
+    "sql-f-triple-quoted-double": {
+      "begin": "(f\"\"\")(\\s*--sql\\b)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        },
+        "2": {
+          "name": "comment.line.sql-marker.python"
+        }
+      },
+      "end": "(\"\"\")",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.end.python"
+        }
+      },
+      "contentName": "meta.embedded.block.sql",
+      "patterns": [
+        {
+          "include": "source.sql"
+        }
+      ]
+    },
+    "sql-f-triple-quoted-single": {
+      "begin": "(f''')(\\s*--sql\\b)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.begin.python"
+        },
+        "2": {
+          "name": "comment.line.sql-marker.python"
+        }
+      },
+      "end": "(''')",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.string.end.python"
